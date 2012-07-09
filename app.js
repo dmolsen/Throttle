@@ -112,7 +112,8 @@ app.post('/', function(req, res) {
 			fs.writeFile("ipfw-rules/ipfw-rm-include.sh", dataR, function(err) {
 			    if (err) throw err;
 			});
-
+			fs.chmodSync('ipfw-rules/ipfw-rm-include.sh', 0755);
+			
 			// good so let's go back to the configure page
 			req.flash('info', 'Throttle has been updated.');
 			res.redirect('/');
