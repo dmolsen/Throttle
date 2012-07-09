@@ -53,7 +53,7 @@ div.info {
 
 #container {
 	background-color: #efefef;
-	width: 320px;
+	width: 318px;
 	margin-left: auto;
 	margin-right: auto;
 	border-left: 1px solid #3f5765;
@@ -86,12 +86,12 @@ div.info {
 }
 
 #about {
-	width: 159px;
+	width: 158px;
 	border-right: 1px solid #3f5765;
 }
 
 #trash {
-	width: 160px;
+	width: 159px;
 }
 
 #nav {
