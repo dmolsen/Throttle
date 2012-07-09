@@ -13,6 +13,7 @@ h1 img {
 a, a:visited {
 	text-decoration: none;
 	color: #000;
+	cursor: pointer;
 }
 
 i {
