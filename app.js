@@ -45,6 +45,8 @@ app.configure('production', function(){
 // show the basic page routes.index
 app.get('/', function (req, res) {
 	
+	var on = false;
+	
 	// try reading the config file. won't exist on first go around so use defaults
 	try {
 		var config = fs.readFileSync('ipfw-rules/ipfw-pipe-config.txt', 'ascii').split("|");
@@ -58,8 +60,16 @@ app.get('/', function (req, res) {
 		var latency       = "200";
 	}
 	
+	var exists = fs.existsSync('ipfw-rules/ipfw-rm-include.sh');
+	if (exists) {
+		var rmFile = fs.readFileSync('ipfw-rules/ipfw-rm-include.sh', 'ascii');
+		if (rmFile.length > 0) {
+			on = true;
+		}
+	}
+	
 	// render the page
-	res.render('index.jade', { bandwidthDown: bandwidthDown, bandwidthUp: bandwidthUp, latency: latency, flash: req.flash() });
+	res.render('index.jade', { on: on, bandwidthDown: bandwidthDown, bandwidthUp: bandwidthUp, latency: latency, flash: req.flash() });
 });
 
 // handle the POST of the new throttle values
@@ -98,10 +108,15 @@ app.post('/', function(req, res) {
 		    if (err) throw err;
 		});
 
+		// if rm-include doesn't exist create it simply to make sure ipfw-mod runs the first time
+		var exists = fs.existsSync('ipfw-rules/ipfw-rm-include.sh');
+		if (!exists) {
+			fs.writeFileSync("ipfw-rules/ipfw-rm-include.sh", '');
+		}
+		
 		// run the configure script from command lined
 		var util = require('util'), exec = require('child_process').exec, child; 
 		child = exec('./ipfw-rules/ipfw-mod.sh', function(err, stdout) {
-			if (err) throw err;
 
 			// figure out which rules will have to be removed before creating new pipes
 			var dataR = '';
@@ -109,9 +124,7 @@ app.post('/', function(req, res) {
 			for (var i in matches) {
 				dataR += "sudo ipfw delete "+matches[i]+"\n";
 			}
-			fs.writeFile("ipfw-rules/ipfw-rm-include.sh", dataR, function(err) {
-			    if (err) throw err;
-			});
+			fs.writeFileSync("ipfw-rules/ipfw-rm-include.sh", dataR);
 			fs.chmodSync('ipfw-rules/ipfw-rm-include.sh', 0755);
 			
 			// good so let's go back to the configure page

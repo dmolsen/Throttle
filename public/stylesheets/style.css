@@ -49,6 +49,11 @@ div.info {
 	text-decoration: underline;
 }
 
+.off {
+	font-weight: bold;
+	color: red;
+}
+
 /* ID specific styles */
 
 #container {
