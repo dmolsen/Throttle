@@ -1,0 +1,21 @@
+!!! 5
+html
+  head
+    title Throttle
+    script(src='/javascripts/scripts.js')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div#container
+      div#title
+        h1 
+          img(src='/images/glyphicons_022_fire.png') 
+          span.inset Throttle
+      div#nav
+        div#about 
+          i.icon-info-sign
+          a(href="/about/") About Throttle
+        div#trash 
+          i.icon-ban-circle
+          a(href="/remove/") Turn Off Throttle
+      div#content!= body

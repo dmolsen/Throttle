@@ -1,0 +1,104 @@
+/* General Tag Styles */
+
+body {
+	font: 14px "Gill Sans", Helvetica, Arial, sans-serif;
+	background-color: #2b2a42;
+	margin: 0;
+}
+
+h1 img {
+	margin-right: 7px;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+i {
+	vertical-align: middle;
+}
+
+/* Class specific styles */
+
+.control-label {
+	font-weight: bold;
+}
+
+.inset { text-shadow:#DBDBDB 0px 1px 0, #2B3A42 0 -1px 0;}
+
+.preset {
+	font-weight: normal;
+	margin-right: 3px;
+}
+
+.alert {
+	width: 75%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div.info {
+	width: 85%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.underline a {
+	text-decoration: underline;
+}
+
+/* ID specific styles */
+
+#container {
+	background-color: #efefef;
+	width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+	border-left: 1px solid #3f5765;
+	border-right: 1px solid #3f5765;
+}
+
+#title {
+	background-color: #c8ddef;
+	color: #ff700d;
+	font-size: 18px;
+	border-bottom: 1px solid #3f5765;
+	padding: 5px;
+	text-align: center;
+}
+
+#title h1 {
+	margin: 0;
+}
+
+#content {
+	padding: 10px 0 5px 0;
+}
+
+#nav div {
+	float: left;
+	text-align: center;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background-color: #DBDBDB;
+}
+
+#about {
+	width: 159px;
+	border-right: 1px solid #3f5765;
+}
+
+#trash {
+	width: 160px;
+}
+
+#nav {
+	margin-bottom: 10px;
+	height: 22px;
+	border-bottom: 1px solid #3f5765;
+}
+
+#intro {
+	margin-bottom: 20px;
+}

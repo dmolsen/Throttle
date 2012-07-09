@@ -1,0 +1,46 @@
+if typeof flash != 'undefined'
+  if (!flash.info && !flash.error)
+    div#intro.info To turn on Throttle or change its settings simply click 'Save' below. 
+  if (flash.info)
+    div.alert.alert-success #{flash.info}
+  if (flash.error)
+    div.alert.alert-error #{flash.error}
+
+form.form-horizontal(method='post', action='/', id='form33')
+  fieldset
+    div.control-group
+      label.control-label(for='bandwidthdown') Bandwidth Down:
+      div.controls
+        div.input-append
+          input#bandwidthdown.input-mini(type='text', name='throttle[bandwidthDown]', value='#{bandwidthDown}')
+          span.add-on Kbits/s
+    div.control-group
+      label.control-label(for='bandwidthup') Bandwidth Up:
+      div.controls
+        div.input-append
+          input#bandwidthup.input-mini(type='text', name='throttle[bandwidthUp]', value='#{bandwidthUp}')
+          span.add-on Kbits/s
+    div.control-group
+      label.control-label(for='latency') Latency/Delay:
+      div.controls
+        div.input-append
+          input#latency.input-mini(type='text', name='throttle[latency]', value='#{latency}')
+          span.add-on ms
+    div.control-group
+      label.control-label(for='submit')
+      div.controls
+        input#submit(type='submit', class='btn btn-primary', value='Save')
+
+div#presets.info
+  p Here are handy presets that can be used to fill in the fields above:
+  p
+    a.preset(data-bd='100', data-bu='56', data-l='300')
+      span#edge.label.label-info EDGE
+    a.preset(data-bd='1879', data-bu='768', data-l='200')
+      span#3g.label.label-info 3G
+    a.preset(data-bd='6579', data-bu='3190', data-l='200')
+      span#4g.label.label-info 4G
+    a.preset(data-bd='400', data-bu='250', data-l='300')
+      span#pn.label.label-info Poor Network
+    a.preset(data-bd='1200', data-bu='600', data-l='200')
+      span#an.label.label-info Avg. Network
