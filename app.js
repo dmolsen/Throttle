@@ -124,7 +124,6 @@ app.post('/', function(req, res) {
 app.get("/remove/", function(req, res) {
 	var util = require('util'), exec = require('child_process').exec, child; 
 	child = exec('./ipfw-rules/ipfw-rm-include.sh', function(err, stdout) {
-		if (err) throw err;
 		fs.writeFile("ipfw-rules/ipfw-rm-include.sh", '', function(err) {
 		    if (err) throw err;
 		});
