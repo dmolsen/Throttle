@@ -76,6 +76,10 @@ You should now see the Throttle admin page. As long as any designers or develope
 
 To use Adobe Shadow with Throttle simply make sure all of your devices and your desktop machine are connected to the WiFi point from the Mac Throttle is running on. Note that any latency or other options (but especially latency) will affect the speed of Adobe Shadow. I'll need to look into that.
 
+## Other Tools ##
+
+Another ipfw tool for the Mac is [WaterRoof](http://www.hanynet.com/waterroof/). If you want to test network connection speeds you can always check-out the speedtest.net app for iOS and Android as well as, obviously, the speedtest.net website.
+
 ## Credits ##
 
 Throttle started as a hack to [shim](https://github.com/marstall/shim/) so thanks to that project and the team at Boston Globe for the inspiration. Throttle uses [Twitter Bootstrap](http://twitter.github.com/bootstrap/) and [Glyphicons](http://glyphicons.com/) for design elements.
