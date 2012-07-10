@@ -13,9 +13,15 @@ Throttle has some very simple features:
 * Use presets to quickly switch between network types
 * The machine Throttle is installed on and devices connect through still has a full-speed Internet connection
 
+## Screenshot ##
+
+What you'll be getting if you install Throttle.
+
+![Screenshot of Throttle](http://dmolsen.com/throttle-screen.png)
+
 ## Requirements ##
 
-Throttle has only been used on a Mac running 10.6.8. It should work on 10.7 with no problems. The Mac must have ethernet and WiFi connections.
+Throttle requires a Mac that is connected to the Internet via ethernet and that also has WiFi capabilities. Throttle has been tested on Mac OS X 10.6.8 & 10.7.4. I highly encourage you to stay away from 32-bit-only Macs as your Throttle platform.
 
 ## Installing Throttle ##
 
@@ -25,9 +31,9 @@ Installing Throttle requires modifying several different parts of your Mac.
 
 Throttle is simply a web-based wrapper for [ipfw](http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/firewalls-ipfw.html). Unfortunately, ipfw requires `sudo` to run and, therefore, will prompt for a password when the command is run. This doesn't work well for a web-based product. To make sure Throttle and ipfw can run without a password do:
 
-1. At command prompt type: `visudo`
+1. At command prompt type: `sudo visudo`
 2. Enter in your administrator password
-3. Using the arrow key scroll to the bottom, type `i`, hit a carriage return so you have a new line and then type: `[need to look this up again]`
+3. Using the arrow key scroll to the bottom, type `i`, hit a carriage return so you have a new line and then type: `[your username] ALL= NOPASSWD: /sbin/ipfw`
 4. Hit `ESC` and then `:wq`
 
 ### Install Node ###
@@ -63,7 +69,7 @@ Any device that uses that WiFi access point will now be throttled based on the o
 The easiest way to connect to Throttle from multiple desktops (e.g. designers and developers want to log on from personal machines) is by using [xip.io](http://xip.io/). To do so:
 
 1. Open Settings > Network
-2. Note the IP address that's listed (will be something like 10.0.x.x or 198.164.x.x)
+2. Note the IP address that's listed (will be something like 10.0.x.x or 192.168.x.x)
 3. In the address bar of your browser type: `http://10.0.x.x.xip.io:3000` where `10.0.x.x` is replaced with the IP address from step #2
 
 You should now see the Throttle admin page. As long as any designers or developers connect to the new WiFi access point they should be able to enter in the xip.io address and change the settings.
