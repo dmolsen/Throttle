@@ -15,9 +15,7 @@ Throttle has some very simple features:
 
 ## Screenshot ##
 
-What you'll be getting if you install Throttle.
-
-![Screenshot of Throttle](http://dmolsen.com/throttle-screen.png)
+You can [see what you'll be getting](http://dmolsen.com/throttle-screen.png) if you install Throttle.
 
 ## Requirements ##
 
