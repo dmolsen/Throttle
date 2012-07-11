@@ -1,12 +1,14 @@
 # Throttle v0.1.0 #
 
-Throttle is a simple node.js app that makes it easier to test how a website performs on poor network connections. For example, testing a responsive website on a poor 3G connection without actually having to have a poor 3G connection. Simply connect your Mac to ethernet, share the network connection via Airport, run Throttle, and any connected device will then be throttled to the the network speed you specified. Throttle was designed to be used in conjunction with a device lab and products like [Adobe Shadow](http://labs.adobe.com/technologies/shadow/) where a shared connection is expected.
+Throttle is a simple node.js app that allows you to simulate poor network connections (e.g. like a cellular connection) so you can test how your websites will perform. For example, testing a responsive website on a poor 3G connection without actually having to have a poor 3G connection. To use Throttle simply connect your Mac to ethernet, share that network connection via Airport, turn on Throttle, and any device connected to that WiFi access point will then be throttled to the the network speed you specify via a web-frontend. If you don’t have node.js on your computer don’t fret. It’s very easy to install so you can get Throttle up and running quickly.
+
+It’s important to note that Throttle was designed to be used in conjunction with a device lab and products like shim or Adobe Shadow where a shared connection is expected. That has definitely influenced its design and test cases.
 
 ## Features ##
 
 Throttle has some very simple features:
 
-* Web-based app so it can be accessed by anyone on your local network
+* Web-based app so it can be accessed & updated from any connected device or computer
 * Modify download network speeds for connected devices
 * Modify upload network speeds for connected devices
 * Modify the latency, or delay, in the network connection for connected devices
@@ -19,7 +21,13 @@ You can [see what you'll be getting](http://dmolsen.com/throttle-screen.png) if 
 
 ## Requirements ##
 
-Throttle requires a Mac that is connected to the Internet via ethernet and that also has WiFi capabilities. Throttle has been tested on Mac OS X 10.6.8 & 10.7.4. I highly encourage you to stay away from 32-bit-only Macs as your Throttle platform.
+Throttle requires the following:
+
+* a Mac running Mac OS X 10.6.x or 10.7.x 
+* a Mac with both ethernet **and** WiFi ports (so probably won't work with a MacBook Air) 
+* node.js v0.8+
+
+I highly encourage you to stay away from 32-bit-only Macs as your Throttle platform.
 
 ## Installing Throttle ##
 
