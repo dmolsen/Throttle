@@ -31,6 +31,7 @@ i {
 .preset {
 	font-weight: normal;
 	margin-right: 3px;
+	float: left;
 }
 
 .alert {
