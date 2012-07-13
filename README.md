@@ -1,4 +1,4 @@
-# Throttle v0.1.0 #
+# Throttle v0.2.0 #
 
 Throttle is a simple node.js app that allows you to simulate poor network connections (e.g. like a cellular connection) so you can test how your websites will perform. For example, testing a responsive website on a poor 3G connection without actually having to have a poor 3G connection. To use Throttle simply connect your Mac to ethernet, share that network connection via Airport, turn on Throttle, and any device connected to that WiFi access point will then be throttled to the the network speed you specify via a web-frontend. If you don’t have node.js on your computer don’t fret. It’s very easy to install so you can get Throttle up and running quickly.
 
@@ -90,4 +90,4 @@ Another ipfw tool for the Mac is [WaterRoof](http://www.hanynet.com/waterroof/).
 
 ## Credits ##
 
-Throttle started as a hack to [shim](https://github.com/marstall/shim/) so thanks to that project and the team at Boston Globe for the inspiration. Throttle uses [Twitter Bootstrap](http://twitter.github.com/bootstrap/) and [Glyphicons](http://glyphicons.com/) for design elements.
+Throttle started as a hack to [shim](https://github.com/marstall/shim/) so thanks to that project and the team at Boston Globe for the inspiration. The presets are derived from Apple's Network Link Conditioner tool and Guy Podjarny's presentation, [The Mobile Difference in Numbers](http://www.slideshare.net/guypod/the-mobile-difference-in-numbers). Throttle uses [Twitter Bootstrap](http://twitter.github.com/bootstrap/) and [Glyphicons](http://glyphicons.com/) for design elements.
