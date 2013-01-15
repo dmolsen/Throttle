@@ -1,8 +1,8 @@
-# Throttle v0.2.0 #
+# Throttle v0.3.0 #
 
 Throttle is a simple node.js app that allows you to simulate poor network connections (e.g. like a cellular connection) so you can test how your websites will perform. For example, testing a responsive website on a poor 3G connection without actually having to have a poor 3G connection. To use Throttle simply connect your Mac to ethernet, share that network connection via Airport, turn on Throttle, and any device connected to that WiFi access point will then be throttled to the the network speed you specify via a web-frontend. If you don’t have node.js on your computer don’t fret. It’s very easy to install so you can get Throttle up and running quickly.
 
-It’s important to note that Throttle was designed to be used in conjunction with a device lab and products like shim or Adobe Shadow where a shared connection is expected. That has definitely influenced its design and test cases.
+It’s important to note that Throttle was designed to be used in conjunction with a device lab and products like shim or Adobe Edge Inspect where a shared connection is expected. That has definitely influenced its design and test cases.
 
 ## Features ##
 
@@ -26,6 +26,7 @@ Throttle requires the following:
 * a Mac running Mac OS X 10.6.x or 10.7.x 
 * a Mac with both ethernet **and** WiFi ports (so probably won't work with a MacBook Air) 
 * node.js v0.8+
+* express 3.0+ _(if you're running express 2 or below you can try the [older version of Throttle](https://github.com/dmolsen/Throttle/tree/v0.2-express-old))_
 
 I highly encourage you to stay away from 32-bit-only Macs as your Throttle platform.
 
@@ -80,9 +81,9 @@ The easiest way to connect to Throttle from multiple desktops (e.g. designers an
 
 You should now see the Throttle admin page. As long as any designers or developers connect to the new WiFi access point they should be able to enter in the xip.io address and change the settings.
 
-## Using Adobe Shadow with Throttle ##
+## Using Adobe Edge Inspect with Throttle ##
 
-To use Adobe Shadow with Throttle simply make sure all of your devices and your desktop machine are connected to the WiFi point from the Mac Throttle is running on. Note that any latency or other options (but especially latency) will affect the speed of Adobe Shadow. I'll need to look into that.
+To use Adobe Edge Inspect with Throttle simply make sure all of your devices and your desktop machine are connected to the WiFi point from the Mac Throttle is running on. Note that any latency or other options (but especially latency) will affect the speed of Adobe Edge Inspect. I'll need to look into that.
 
 ## Other Tools ##
 

@@ -1,5 +1,5 @@
 /*!
- * Throttle v0.1.0
+ * Throttle v0.3.0
  *
  * Copyright (c) 2012 Dave Olsen, http://dmolsen.com
  * Licensed under the MIT license
@@ -13,7 +13,7 @@ var express = require('express')
   , routes  = require('./routes')
   , fs      = require('fs');
 
-var app = module.exports = express.createServer();
+var app = module.exports = express();
 
 /**************************************************
  * Configure the app
@@ -68,8 +68,18 @@ app.get('/', function (req, res) {
 		}
 	}
 	
+	if (typeof req.session.flash != 'undefined') {
+		var flash             = req.session.flash;
+		var flashType         = req.session.flashType;
+		req.session.flash     = '';
+		req.session.flashType = '';
+	} else {
+		var flash     = '';
+		var flashType = '';
+	}
+	
 	// render the page
-	res.render('index.jade', { on: on, bandwidthDown: bandwidthDown, bandwidthUp: bandwidthUp, latency: latency, flash: req.flash() });
+	res.render('index.jade', { on: on, bandwidthDown: bandwidthDown, bandwidthUp: bandwidthUp, latency: latency, flash: flash, flashType: flashType });
 });
 
 // handle the POST of the new throttle values
@@ -83,7 +93,8 @@ app.post('/', function(req, res) {
 	// validate the data
 	var pattern       = /^[0-9]{1,5}$/;
 	if (!pattern.test(bandwidthUp) || !pattern.test(bandwidthDown) || !pattern.test(latency)) {
-		req.flash('error', 'Please make sure youre only using numbers for the values.');
+		req.session.flash     = 'Please make sure youre only using numbers for the values.';
+		req.session.flashType = 'error';
 		res.redirect('/');
 	} else {
 		// save options to disk
@@ -128,7 +139,8 @@ app.post('/', function(req, res) {
 			fs.chmodSync('ipfw-rules/ipfw-rm-include.sh', 0755);
 			
 			// good so let's go back to the configure page
-			req.flash('info', 'Throttle has been updated.');
+			req.session.flash     = 'Throttle has been updated.';
+			req.session.flashType = 'info';
 			res.redirect('/');
 		});
 	}
@@ -141,7 +153,8 @@ app.get("/remove/", function(req, res) {
 		fs.writeFile("ipfw-rules/ipfw-rm-include.sh", '', function(err) {
 		    if (err) throw err;
 		});
-		req.flash('info', 'Throttle has been turned off.');
+		req.session.flash     = 'Throttle has been turned off.';
+		req.session.flashType = 'info';
 		res.redirect('/');
 	});
 });
@@ -156,5 +169,5 @@ app.get("/about/", function(req, res) {
  *************************************************/
 
 app.listen(3000, function(){
-  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+  console.log("Express server listening on port %d in %s mode", 3000, app.settings.env);
 });

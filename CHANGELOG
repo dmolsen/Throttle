@@ -2,6 +2,9 @@ THIS CHANGELOG IS AN ATTEMPT TO DOCUMENT CHANGES TO THIS PROJECT.
 SUPER MINOR REVISION NUMBERS WON'T SHOW UP IN GITHUB BUT IT'LL HELP
 ME ORGANIZE WHEN I MADE A SET OF FIXES
 
+THRTL-v0.3.0 (Jan. 15, 2012)
+ FIX: made sure throttle supports express 3.0
+
 THRTL-v0.2.0 (Jul. 12, 2012)
  - updated the presets & made sure i gave credit
 

@@ -1,58 +1,61 @@
-if typeof flash != 'undefined'
-  if (!flash.info && !flash.error)
+extends layout
+
+block mainContent
+  if (flash != '')
+    if (flashType == 'info')
+      div.alert.alert-success #{flash}
+    else
+      div.alert.alert-error #{flash}
+  else
     if (on)
       div#intro.info To change Throttle's settings update the fields below & click 'Save' .
     else
-      div#intro.info Throttle is <span class="off">off</span>. To turn it on simply choose your settings & click 'Save' below. 
-  if (flash.info)
-    div.alert.alert-success #{flash.info}
-  if (flash.error)
-    div.alert.alert-error #{flash.error}
+      div#intro.info Throttle is <span class="off">off</span>. To turn it on simply choose your settings & click 'Save' below.
 
-form.form-horizontal(method='post', action='/', id='form33')
-  fieldset
-    div.control-group
-      label.control-label(for='bandwidthdown') Bandwidth Down:
-      div.controls
-        div.input-append
-          input#bandwidthdown.input-mini(type='text', name='throttle[bandwidthDown]', value='#{bandwidthDown}')
-          span.add-on Kbits/s
-    div.control-group
-      label.control-label(for='bandwidthup') Bandwidth Up:
-      div.controls
-        div.input-append
-          input#bandwidthup.input-mini(type='text', name='throttle[bandwidthUp]', value='#{bandwidthUp}')
-          span.add-on Kbits/s
-    div.control-group
-      label.control-label(for='latency') Latency/Delay:
-      div.controls
-        div.input-append
-          input#latency.input-mini(type='text', name='throttle[latency]', value='#{latency}')
-          span.add-on ms
-    div.control-group
-      label.control-label(for='submit')
-      div.controls
-        input#submit(type='submit', class='btn btn-primary', value='Save')
+  form.form-horizontal(method='post', action='/', id='form33')
+    fieldset
+      div.control-group
+        label.control-label(for='bandwidthdown') Bandwidth Down:
+        div.controls
+          div.input-append
+            input#bandwidthdown.input-mini(type='text', name='throttle[bandwidthDown]', value='#{bandwidthDown}')
+            span.add-on Kbits/s
+      div.control-group
+        label.control-label(for='bandwidthup') Bandwidth Up:
+        div.controls
+          div.input-append
+            input#bandwidthup.input-mini(type='text', name='throttle[bandwidthUp]', value='#{bandwidthUp}')
+            span.add-on Kbits/s
+      div.control-group
+        label.control-label(for='latency') Latency/Delay:
+        div.controls
+          div.input-append
+            input#latency.input-mini(type='text', name='throttle[latency]', value='#{latency}')
+            span.add-on ms
+      div.control-group
+        label.control-label(for='submit')
+        div.controls
+          input#submit(type='submit', class='btn btn-primary', value='Save')
 
-div#presets.info
-  p Here are handy presets that can be used to fill in the fields above:
-  p
-    a.preset(data-bd='240', data-bu='200', data-l='420')
-      span#edgea.label.label-info EDGE Avg
-    a.preset(data-bd='250', data-bu='200', data-l='360')
-      span#edgeg.label.label-info EDGE Good
-    a.preset(data-bd='780', data-bu='330', data-l='100')
-      span#3ga.label.label-info 3G Avg
-    a.preset(data-bd='850', data-bu='420', data-l='100')
-      span#3gg.label.label-info 3G Good
-    a.preset(data-bd='6579', data-bu='3190', data-l='200')
-      span#4ga.label.label-info 4G Avg.
-    a.preset(data-bd='400', data-bu='250', data-l='300')
-      span#pn.label.label-info Gen. Poor Network
-    a.preset(data-bd='1200', data-bu='600', data-l='200')
-      span#an.label.label-info Gen. Avg. Network
-    a.preset(data-bd='6144', data-bu='1024', data-l='2')
-      span#cm.label.label-info Cable Modem
-    a.preset(data-bd='2048', data-bu='256', data-l='5')
-      span#dsl.label.label-info DSL
-    br(clear="all")
+  div#presets.info
+    p Here are handy presets that can be used to fill in the fields above:
+    p
+      a.preset(data-bd='240', data-bu='200', data-l='420')
+        span#edgea.label.label-info EDGE Avg
+      a.preset(data-bd='250', data-bu='200', data-l='360')
+        span#edgeg.label.label-info EDGE Good
+      a.preset(data-bd='780', data-bu='330', data-l='100')
+        span#3ga.label.label-info 3G Avg
+      a.preset(data-bd='850', data-bu='420', data-l='100')
+        span#3gg.label.label-info 3G Good
+      a.preset(data-bd='6579', data-bu='3190', data-l='200')
+        span#4ga.label.label-info 4G Avg.
+      a.preset(data-bd='400', data-bu='250', data-l='300')
+        span#pn.label.label-info Gen. Poor Network
+      a.preset(data-bd='1200', data-bu='600', data-l='200')
+        span#an.label.label-info Gen. Avg. Network
+      a.preset(data-bd='6144', data-bu='1024', data-l='2')
+        span#cm.label.label-info Cable Modem
+      a.preset(data-bd='2048', data-bu='256', data-l='5')
+        span#dsl.label.label-info DSL
+      br(clear="all")
