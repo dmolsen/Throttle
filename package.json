@@ -1,0 +1,13 @@
+{
+  "name": "Throttle",
+  "description": "Throttle is a simple node.js app that allows you to simulate poor network connections (e.g. like a cellular connection) so you can test how your websites will perform. For example, testing a responsive website on a poor 3G connection without actually having to have a poor 3G connection. To use Throttle simply connect your Mac to ethernet, share that network connection via Airport, turn on Throttle, and any device connected to that WiFi access point will then be throttled to the the network speed you specify via a web-frontend. If you don’t have node.js on your computer don’t fret. It’s very easy to install so you can get Throttle up and running quickly.",
+  "version": "0.3.0",
+  "author": {
+    "name": "Dave Olsen",
+    "email": "dmolsen@gmail.com"
+  },
+  "dependencies": {
+    "express": "3.0.6",
+    "jade": "0.28.1"
+  }
+}
